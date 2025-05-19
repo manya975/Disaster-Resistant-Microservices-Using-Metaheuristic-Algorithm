@@ -1,0 +1,22 @@
+i
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: docker-demo-deployment  # Name of your deployment
+spec:
+  replicas: 2  # Define the number of replicas (pods) you want
+  selector:
+    matchLabels:
+      app: docker-demo  # Label to match the pods
+  template:
+    metadata:
+      labels:
+        app: docker-demo  # Label to be added to the pods
+    spec:
+      containers:
+      - name: docker-demo  # Name of the container
+        image: manyarai/docker-demo:1.0  # Docker image to use
+        ports:
+        - containerPort: 9999  # Port exposed by each containe
+
+
